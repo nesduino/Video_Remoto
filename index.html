@@ -10,21 +10,20 @@
 <body>
     <!-- Contenedor del reproductor -->
     <video id="miVideo" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360">
-        <source src="https://www.youtube.com/watch?v=GCRSVZNpqeU" type="video/youtube">
-        <!-- Agregar cualquier otro contenido alternativo si no se soporta Video.js -->
-        Tu navegador no soporta el reproductor de Video.js.
+        <!-- Aquí Video.js integrará el video de YouTube -->
     </video>
 
-    <!-- Script de Video.js -->
+    <!-- Scripts de Video.js y el plugin de YouTube -->
     <script src="https://cdn.jsdelivr.net/npm/video.js@7.16.1/dist/video.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/videojs-youtube@2.10.0/dist/Youtube.min.js"></script>
 
-    <!-- Inicializar Video.js -->
+    <!-- Inicializar Video.js con el plugin YouTube -->
     <script>
         var player = videojs('miVideo', {
-            techOrder: ['youtube'],
+            techOrder: ['youtube'], // Se asegura de usar el reproductor de YouTube
             sources: [{
                 type: 'video/youtube',
-                src: 'https://www.youtube.com/watch?v=GCRSVZNpqeU' // Sustituye VIDEO_ID por el ID del video de YouTube
+                src: 'https://www.youtube.com/watch?v=GCRSVZNpqeU' // Reemplaza este ID con el del video que quieras mostrar
             }]
         });
     </script>
