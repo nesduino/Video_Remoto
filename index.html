@@ -19,12 +19,14 @@
     width="640"
     height="360"
     muted
+    loop
     data-setup='{
       "techOrder": ["youtube"],
       "autoplay": true,
+      "loop": true,
       "sources": [{
         "type": "video/youtube",
-        "src": "https://www.youtube.com/watch?v=0xrsLLSCWsw"
+        "src": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
       }]
     }'>
   </video>
@@ -50,6 +52,12 @@
         // Reproducir automáticamente
         player.play().catch(error => {
           console.error('Error al reproducir automáticamente:', error);
+        });
+
+        // Forzar el bucle infinito (en caso de que no funcione por configuración)
+        player.on('ended', function () {
+          player.currentTime(0);
+          player.play();
         });
       });
     });
